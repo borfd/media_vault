@@ -10,6 +10,7 @@ class MediaItem < ActiveRecord::Base
     image
     youtube(width: 400, height: 250, autoplay: false)
     soundcloud
+    instagram
     link :target => "_blank", :rel => "nofollow"
     simple_format
   end
