@@ -36,6 +36,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'react-rails', '~> 1.3.0'
 gem 'nokogiri'
+gem 'auto_html'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

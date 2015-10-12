@@ -15,8 +15,8 @@
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.select :type, ["website", "youtube", "file"] %>
+    <%= f.label :public %>
+    <%= f.check_box :public %>
   </div>
   <div class="actions">
     <%= f.submit %>

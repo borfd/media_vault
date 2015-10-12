@@ -31,6 +31,6 @@ class MediaItemsController < ApplicationController
 
   private
     def media_item_params
-      params.require(:media_item).permit(:url, :type)
+      params.require(:media_item).permit(:url, :public)
     end
 end

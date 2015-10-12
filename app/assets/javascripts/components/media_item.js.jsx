@@ -9,6 +9,7 @@ var MediaItem = React.createClass({
     return (
       <div>
         <a href="{this.props.item.url}">{title}</a>
+        <div dangerouslySetInnerHTML={{__html: this.props.item.url_html}} />
       </div>
     );
   }

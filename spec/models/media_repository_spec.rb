@@ -8,7 +8,7 @@ describe MediaRepository do
       {
         user: user,
         url: 'http://news.ycombinator.com',
-        type: 'website',
+        public: true
       }
     end
 
@@ -19,7 +19,7 @@ describe MediaRepository do
 
       media_item = user.media_items.last
       expect(media_item.url).to eq(item_attributes[:url])
-      expect(media_item.type).to eq(item_attributes[:type])
+      expect(media_item.public?).to eq(item_attributes[:public])
     end
   end
 
