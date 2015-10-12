@@ -2,23 +2,36 @@ require 'rails_helper'
 
 describe MediaRepository do
 
-  let(:user) { FactoryGirl.create(:user) }
-  let(:item_attributes) do
-    {
-      user: user,
-      url: 'http://news.ycombinator.com',
-      type: 'website',
-    }
+  context "add method" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:item_attributes) do
+      {
+        user: user,
+        url: 'http://news.ycombinator.com',
+        type: 'website',
+      }
+    end
+
+    it "has an add method which adds a new media item" do
+      described_class.add(item_attributes)
+
+      expect(user.media_items.count).to eq(1)
+
+      media_item = user.media_items.last
+      expect(media_item.url).to eq(item_attributes[:url])
+      expect(media_item.type).to eq(item_attributes[:type])
+    end
   end
 
-  it "has an add method which adds a new media item" do
-    described_class.add(item_attributes)
+  context "can find media items based on public setting" do
+    let(:public_media_items_count) { 5 }
+    let(:public_items) { FactoryGirl.create_list(:media_item, public_media_items_count, public: true) }
+    let(:private_item) { FactoryGirl.create(:media_item, public: false) }
 
-    expect(user.media_items.count).to eq(1)
+    it "has a where method" do
+      expect(described_class.where(public: true)).to eq(public_items)
+    end
 
-    media_item = user.media_items.last
-    expect(media_item.url).to eq(item_attributes[:url])
-    expect(media_item.type).to eq(item_attributes[:type])
   end
 
 end
