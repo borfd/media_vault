@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :media_items
+  resources :media_items
   get 'static/index'
 
   devise_for :users

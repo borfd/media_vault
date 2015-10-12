@@ -1,6 +1,6 @@
 class MediaRepository
   def self.add(options)
-    MediaItem.create!(options)
+    MediaItem.create(options)
   end
 
   def self.where(*options)
