@@ -24,13 +24,22 @@ describe MediaBrowse do
   end
 
   context "as user 2" do
-
     let(:current_user) { user_2 }
 
     it "lists public items for both users and private items for current user" do
       items = subject.items
 
       expect(items.to_a).to eq(user_2_public + user_2_private + user_1_public)
+    end
+  end
+
+  context "as guest" do
+    let(:current_user) { nil }
+
+    it "lists all public items" do
+      items = subject.items
+
+      expect(items.to_a).to eq(user_1_public + user_2_public)
     end
   end
 

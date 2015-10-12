@@ -8,6 +8,10 @@ class MediaRepository
   end
 
   def self.visible_for(user)
-    MediaItem.where(user: user) + MediaItem.where('user_id != ? AND public = ?', user.id, true)
+    if user == MediaBrowse::NoUser
+      MediaItem.where(public: true)
+    else
+      MediaItem.where(user: user) + MediaItem.where('user_id != ? AND public = ?', user.id, true)
+    end
   end
 end
