@@ -7,9 +7,7 @@ var SearchInput = React.createClass({
   },
 
   onKeyDown: function(event) {
-    if(event.keyCode == 13) {
-      this.props.onEnter(this.state.value);
-    }
+    this.props.onEnter(this.state.value);
   },
 
   render: function() {

@@ -12,9 +12,14 @@ var SearchMediaItems = React.createClass({
     var searchTerm = this.state.searchTerm;
 
     if(!(searchTerm === 0)) {
-
       items = items.filter(function(i) {
-        return i.url.toLowerCase().match(searchTerm);
+        url_match = i.url.toLowerCase().match(searchTerm);
+        title_match = false;
+        if(i.scraped_title) {
+          title_match = i.scraped_title.toLowerCase().match(searchTerm);
+        }
+
+        return url_match || title_match;
       });
     }
 

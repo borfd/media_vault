@@ -10,7 +10,11 @@ class AddToMediaCollection
   end
 
   def execute!
-    MediaRepository.add(user: user, url: url, type: type)
+    MediaRepository.add(user: user, url: url, type: type).tap do |item|
+      if item.valid?
+        ScrapeTitleJob.perform_later(item.id)
+      end
+    end
   end
 
 end
