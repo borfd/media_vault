@@ -1,5 +1,3 @@
-
-
 class AddToMediaCollection
 
   attr_reader :user
@@ -9,10 +7,10 @@ class AddToMediaCollection
   end
 
   def execute!(options)
-    item_url = options.fetch(:item_url)
+    url = options.fetch(:url)
     type     = options.fetch(:type)
 
-    MediaRepository.add(user: user, item_url: item_url, type: type)
+    MediaRepository.add(user: user, url: url, type: type)
   end
 
 end
