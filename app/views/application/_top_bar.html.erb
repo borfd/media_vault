@@ -9,20 +9,20 @@
       <% if user_signed_in? %>
 
         <li>
-          <%= link_to "Homepage", media_items_path %>
+          <%= link_to "Homepage", media_items_path, class: 'tiny button' %>
         </li>
         <li>
-          <%= link_to "Add new media item", new_media_item_path %>
+          <%= link_to "Add new media item", new_media_item_path, class: 'tiny button' %>
         </li>
         <li>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'tiny button' %>
         </li>
       <% else %>
         <li>
-          <%= link_to('Login', new_user_session_path)  %>
+          <%= link_to 'Login', new_user_session_path, class: 'tiny button'  %>
         </li>
         <li>
-          <%= link_to('Register', new_user_registration_path)  %>
+          <%= link_to 'Register', new_user_registration_path, class: 'tiny button'  %>
         </li>
       <% end %>
     </ul>
