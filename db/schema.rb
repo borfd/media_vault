@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012121559) do
+ActiveRecord::Schema.define(version: 20151012152143) do
 
   create_table "media_items", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "url"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.boolean  "public"
+    t.string   "scraped_title"
   end
 
   create_table "users", force: :cascade do |t|

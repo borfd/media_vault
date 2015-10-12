@@ -14,4 +14,8 @@ class MediaRepository
       MediaItem.where(user: user) + MediaItem.where('user_id != ? AND public = ?', user.id, true)
     end
   end
+
+  def self.find(*args)
+    MediaItem.find(*args)
+  end
 end
