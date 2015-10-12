@@ -7,7 +7,7 @@ describe MediaRepository do
     {
       user: user,
       url: 'http://news.ycombinator.com',
-      type: 'website'
+      type: 'website',
     }
   end
 

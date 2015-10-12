@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe MediaItem, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "must be private by default" do
+    item = described_class.new
+
+    expect(item.public?).to eq(false)
+  end
 end
