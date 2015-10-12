@@ -8,6 +8,6 @@ class MediaRepository
   end
 
   def self.visible_for(user)
-    MediaItem.where('user_id = ? OR public = ?', user.id, true).distinct
+    MediaItem.where(user: user) + MediaItem.where('user_id != ? AND public = ?', user.id, true)
   end
 end

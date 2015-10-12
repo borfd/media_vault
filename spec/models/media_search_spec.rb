@@ -23,4 +23,15 @@ describe MediaSearch do
     end
   end
 
+  context "as user 2" do
+
+    let(:current_user) { user_2 }
+
+    it "lists public items for both users and private items for current user" do
+      items = subject.items
+
+      expect(items.to_a).to eq(user_2_public + user_2_private + user_1_public)
+    end
+  end
+
 end
