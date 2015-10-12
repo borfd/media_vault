@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe MediaSearch do
+describe MediaBrowse do
 
   let(:user_1) { FactoryGirl.create(:user) }
   let(:user_2) { FactoryGirl.create(:user) }

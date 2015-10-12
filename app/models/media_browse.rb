@@ -1,4 +1,4 @@
-class MediaSearch
+class MediaBrowse
   attr_reader :user
 
   def initialize(options)
