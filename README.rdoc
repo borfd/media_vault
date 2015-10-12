@@ -4,6 +4,6 @@ A simple app to add links to a media vault. Supports scraping the title of the w
 
 === Setup
 
-`rake db:setup`
-`rake db:migrate`
-`rails s`
+rake db:setup
+rake db:migrate
+rails s
