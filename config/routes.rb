@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :media_items
   resources :media_items
-  get 'static/index'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -58,5 +57,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root to: "static#index"
+  root to: "media_items#index"
 end
