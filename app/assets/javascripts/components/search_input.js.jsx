@@ -12,7 +12,7 @@ var SearchInput = React.createClass({
 
   render: function() {
     return (
-      <input type="text" value={this.state.value} onChange={this.handleChange} onKeyDown={this.onKeyDown}/>
+      <input type="text" value={this.state.value} onChange={this.handleChange} onKeyDown={this.onKeyDown} placeholder="Search items..." />
     );
   }
 });
