@@ -13,18 +13,17 @@
   </head>
 
   <body>
+    <input id="current_user_id" type="hidden" value="<%= user_signed_in? ? current_user.id : nil %>" />
 
-  <%= render "top_bar" %>
+    <%= render "top_bar" %>
 
-  <div class="row">
-    <div class="large-9 push-3 columns">
-      <%= yield %>
+    <div class="row">
+      <div class="large-9 push-3 columns">
+        <%= yield %>
+       </div>
+      <div class="large-3 pull-9 columns">
+        <%= render "sidebar" %>
+      </div>
      </div>
-    <div class="large-3 pull-9 columns">
-      <%= render "sidebar" %>
-    </div>
-   </div>
-
-
   </body>
 </html>

@@ -1,11 +1,19 @@
+var MediaItemEditLink = React.createClass({
+  render: function() {
+    return (
+      <a href={this.props.editLink}>Edit</a>
+    );
+  }
+});
+
 var MediaItemDangerousInnerHTML = React.createClass({
   render: function() {
+    showEditLink = this.props.userId == $("#current_user_id").val();
     editLink = "/media_items/" + this.props.itemId + "/edit";
     return (
       <div className="panel">
-
         <div dangerouslySetInnerHTML={{__html: this.props.html}} />
-        <p>Added on {this.props.createdAt} <a href={editLink}>Edit</a></p>
+        <p>Added on {this.props.createdAt} {showEditLink ? <MediaItemEditLink editLink={editLink} /> : "" }</p>
       </div>
     );
   },
@@ -31,7 +39,7 @@ var MediaItem = React.createClass({
     return (
       <div className="media-item">
         <a onClick={this.handleClick}>{title}</a>
-        {!this.state.collapsed ? <MediaItemDangerousInnerHTML html={this.props.item.url_html} createdAt={this.props.item.created_at} itemId={this.props.item.id} /> : ""}
+        {!this.state.collapsed ? <MediaItemDangerousInnerHTML html={this.props.item.url_html} createdAt={this.props.item.created_at} itemId={this.props.item.id} userId={this.props.item.user_id} /> : ""}
       </div>
     );
   }
