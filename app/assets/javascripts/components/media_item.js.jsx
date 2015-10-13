@@ -38,7 +38,7 @@ var MediaItem = React.createClass({
     }
     return (
       <div className="media-item">
-        <a onClick={this.handleClick}>{title}</a>
+        <a onClick={this.handleClick} onTap={this.handleClick}>{title}</a>
         {!this.state.collapsed ? <MediaItemDangerousInnerHTML html={this.props.item.url_html} createdAt={this.props.item.created_at} itemId={this.props.item.id} userId={this.props.item.user_id} /> : ""}
       </div>
     );
