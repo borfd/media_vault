@@ -39,7 +39,6 @@ gem 'nokogiri'
 gem 'auto_html'
 gem 'pg'
 gem 'puma'
-gem 'resque', "~> 1.22.0"
 gem 'delayed_job_active_record'
 
 group :development, :test do
